@@ -1,6 +1,6 @@
-import "./Square";
 import { useState } from "react";
 import { Square } from "./Square";
+import "./index.css";
 
 export const Board = (props) => {
   const initializeSquares = () => Array(9).fill(null);
@@ -23,12 +23,9 @@ export const Board = (props) => {
   };
 
   const winner = calculateWinner(squares);
-  let status;
-  if (winner) {
-    status = "Winner: " + winner;
-  } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
-  }
+  const status = winner
+    ? "Winner: " + winner
+    : "Next player: " + (xIsNext ? "X" : "O");
 
   return (
     <div>
